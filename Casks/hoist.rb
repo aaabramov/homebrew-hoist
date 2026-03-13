@@ -1,6 +1,6 @@
 cask "hoist" do
-  version "6.0.2"
-  sha256 "efacb59097bd9f60292390f4cdc66b5d9dbe8c6b11e9d59ebd0af2555c408f96"
+  version "0.1.0"
+  sha256 "28208db6d37001cf82834a86f169e2d3028ca059b8f17600afbfc00da5c9acd4"
 
   url "https://github.com/aaabramov/Hoist/releases/download/v#{version}/Hoist.dmg"
   name "Hoist"
