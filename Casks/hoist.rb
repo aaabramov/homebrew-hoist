@@ -10,7 +10,10 @@ cask "hoist" do
   app "Hoist.app"
 
   postflight do
-    system_command "/usr/bin/xattr", args: ["-cr", "#{appdir}/Hoist.app"]
+    # Clear recursive quarantine flags
+    system_command "/usr/bin/xattr", args: ["-rd", "com.apple.quarantine", "#{appdir}/Hoist.app"]
+    # Re-sign locally so macOS TCC trusts the app across reboots
+    system_command "/usr/bin/codesign", args: ["--force", "--deep", "-s", "-", "#{appdir}/Hoist.app"]
   end
 
   zap trash: "~/.config/hoist"
